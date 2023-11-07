@@ -1,0 +1,121 @@
+<!--Version de prueba funciona pero falta agregar mejoras-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proforma Front</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Cabecera con logo e información de la empresa -->
+        <div class="header">
+
+            <div class="brand-info">
+                <img src="images/frontsvg.svg" alt="Logo front">
+                <div class="company-info">
+                    <p>Confecciones de artículos deportivos, polos, shorts, medias, buzos para colegios, estampados en
+                        general articulos para ballet, natación, karate, etc.</p>
+                    <p>ATENDEMOS PEDIDOS A PROVINCIA</p>
+                    <p>Av. Abancay N° 368 Int. 1055 - Jr. Huallaga 428 Int 1055 Lima</p>
+                    <p>Fijo: 396 6738 Cel: 999 525 840 | 933 600 209</p>
+                    <p>www.frontatletic.com - frontsport_78@hotmail.com</p>
+                </div>
+            </div>
+
+            <div class="proforma-info">
+                <div class="proforma-square">
+                    <h2>Proforma</h2>
+                    <div class="proforma-number">
+                        <input type="number" id="proformaNumber" name="proformaNumber" placeholder="1">
+                    </div>
+                </div>
+                <div class="proforma-date">
+                    <label for="proformaDate">Fecha:</label>
+                    <input type="date" id="proformaDate" name="proformaDate">
+                </div>
+            </div>
+
+        </div>
+
+        <h2>Información de la Empresa</h2>
+        <form id="proformaForm">
+            <div class="info-section">
+                <div class="info-section__senior">
+                    <div class="info-section__senior-firstChild">
+                        <label for="companyName">Señor(es):</label>
+                    </div>
+                    <div class="info-section__senior-lastChild">
+                        <input type="text" id="companyName" name="companyName" required>
+                    </div>
+                </div>
+                <div class="info-section__add-phone">
+                    <div class="info-section__add-phone-firstChild">
+                        <label for="companyAddress">Dirección:</label>
+                    </div>
+                    <div class="info-section__add-phone-secondtChild">
+                        <input type="text" id="companyAddress" name="companyAddress">
+                    </div>
+                    <div class="info-section__add-phone-thirdChild">
+                        <label for="companyPhone">Teléfono:</label>
+                    </div>
+                    <div class="info-section__add-phone-lastChild">
+                        <input type="text" id="companyPhone" name="companyPhone">
+                    </div>
+                </div>
+            </div>
+
+            <h2>Detalles</h2>
+            <div class="product-header">
+                <label>Cantidad</label>
+                <label>Tipo</label>
+                <label>Detalle</label>
+                <label>Precio Unitario</label>
+                <label>Importe</label>
+            </div>
+            <div class="product-details">
+                <div class="product-row">
+                    <input type="number" id="quantity1" name="quantity1" required>
+                    <select id="tipo1" name="tipo1" required onchange="updatePrice(1)">
+                        <option value="" disabled selected>Selecciona un producto</option>
+                        <option value="camisetas">Camisetas</option>
+                        <option value="short">Short</option>
+                        <option value="medias">Medias</option>
+                        <option value="casaca">Casaca</option>
+                        <option value="buzos">Buzos</option>
+                        <option value="cortavientos">Cortavientos</option>
+                        <option value="otros">Otros</option>
+                    </select>
+                    <input type="text" id="description1" name="description1">
+                    <input type="number" id="unitPrice1" name="unitPrice1" readonly>
+                    <input type="number" id="amount1" name="amount1" readonly>
+                    <button type="button" onclick="removeProductRow(1)">Eliminar</button>
+                </div>
+            </div>
+
+            <button class="add-product-button" type="button" onclick="addProductRow()">Agregar Producto</button>
+            <h2>Resumen</h2>
+            <div class="summary-section">
+                <label for="advance">A cuenta:</label>
+                <input type="number" id="advance" name="advance">
+            </div>
+            <div class="summary-section">
+                <label for="balance">Saldo:</label>
+                <input type="number" id="balance" name="balance" readonly value="0">
+            </div>
+            <div class="summary-section">
+                <label for="total">Total:</label>
+                <input type="number" id="total" name="total" readonly>
+            </div>
+
+            <button class="add-product-button" type="button" onclick="calculateTotal()">Calcular Total</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

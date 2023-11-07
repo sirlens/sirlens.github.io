@@ -11,7 +11,7 @@
 }
 
 a {
-    color: #8329F2;
+    color: #30F23A;
     /* Color principal de la empresa */
     text-decoration: none;
     /* Quita el subrayado por defecto */
@@ -27,7 +27,7 @@ a {
 }
 
 a:hover {
-    background-color: #8329F2;
+    background-color: #30F23A;
     /* Cambia el color de fondo al pasar el ratón por encima */
     color: #383838;
     /* Cambia el color del texto al pasar el ratón por encima */
@@ -76,7 +76,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #8329F2;
+    background-color: #30F23A;
 }
 
 .search-txt i {
@@ -265,7 +265,7 @@ select {
 }
 
 .brand-info {
-    background-color: #8329F2;
+    background-color: #30F23A;
     border-radius: 10px;
     max-width: 65%;
     padding: 20px;
@@ -299,7 +299,7 @@ select {
 }
 
 .proforma-square {
-    background-color: #8329F2;
+    background-color: #30F23A;
     border-radius: 10px;
     max-width: 60vw;
     padding: 20px;
@@ -332,7 +332,7 @@ select {
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 10px;
-    color: #8329F2;
+    color: #30F23A;
 }
 
 .info-section {
@@ -433,7 +433,7 @@ select {
 
 /* Estilos para el botón "Agregar Producto" */
 .add-product-button {
-    background: linear-gradient(to bottom, #8329F2 0%, #6C18D3 100%);
+    background: linear-gradient(to bottom, #30F23A 0%, #06C706 100%);
     border: none;
     color: white;
     padding: 10px 20px;
@@ -447,5 +447,5 @@ select {
 }
 
 .add-product-button:hover {
-    background: linear-gradient(to bottom, #6C18D3 0%, #8329F2 100%);
+    background: linear-gradient(to bottom, #06C706 0%, #30F23A 100%);
 }

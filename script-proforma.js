@@ -29,43 +29,19 @@ function addProductRow() {
 <option value="otros">Otros</option>
 </select>
 <input type="text" id="description${rowCount}" name="description${rowCount}">
-<input type="number" id="unitPrice${rowCount}" name="unitPrice${rowCount}" readonly>
+<input type="number" id="unitPrice${rowCount}" name="unitPrice${rowCount}">
 <input type="number" id="amount${rowCount}" name="amount${rowCount}" readonly>
-<button type="button" onclick="removeProductRow(${rowCount})">Eliminar</button>
+<button class="only-screen button-front" type="button" onclick="removeProductRow(${rowCount})">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+    <path
+    d="m24,78c0,4.968 4.029,9 9,9h30c4.968,0 9-4.032 9-9l6-48h-60l6,48zm33-39h6v39h-6v-39zm-12,0h6v39h-6v-39zm-12,0h6v39h-6v-39zm43.5-21h-19.5c0,0-1.344-6-3-6h-12c-1.659,0-3,6-3,6h-19.5c-2.487,0-4.5,2.013-4.5,4.5s0,4.5 0,4.5h66c0,0 0-2.013 0-4.5s-2.016-4.5-4.5-4.5z" />
+</svg>
+</button>
 `;
 
     productDetails.appendChild(newRow);
 }
 
-
-function updatePrice(row) {
-    const tipo = document.getElementById(`tipo${row}`);
-    const unitPrice = document.getElementById(`unitPrice${row}`);
-    const selectedOption = tipo.value;
-
-    // Habilita o deshabilita la edición del precio unitario según la selección
-    if (selectedOption === 'otros') {
-        unitPrice.removeAttribute('readonly');
-    } else {
-        unitPrice.setAttribute('readonly', 'true');
-    }
-
-    // Precios para productos predefinidos
-    const prices = {
-        camisetas: 40,
-        short: 20,
-        medias: 10,
-        casaca: 30,
-        buzos: 40,
-        cortavientos: 30,
-    };
-
-    if (selectedOption in prices) {
-        unitPrice.value = prices[selectedOption];
-    } else {
-        unitPrice.value = "";
-    }
-}
 
 
 function calculateTotal() {
@@ -101,3 +77,8 @@ const currentDate = new Date().toISOString().split('T')[0];
 
 // Establecer la fecha actual como valor predeterminado
 proformaDate.value = currentDate;
+
+function downloadPDF() {
+    const $elementoParaConvertir = document.getElementById('enviarCliente'); // <-- Aquí puedes elegir cualquier elemento del DOM
+    window.print();
+}

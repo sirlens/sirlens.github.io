@@ -1,13 +1,19 @@
 @font-face {
-    font-family: letramolona;
-    src: url(fonts/EncodeSans-SemiBold.ttf);
+    font-family: letramolona-regularExp;
+    src: url(fonts/EncodeSans_SemiExpanded-Regular.ttf);
 }
+@font-face {
+    font-family: letramolona-medium;
+    src: url(fonts/EncodeSans_SemiExpanded-Medium.ttf);
+}
+
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: letramolona-regularExp, Arial, Helvetica, sans-serif;
+    font-weight: 200;
 }
 
 a {
@@ -90,8 +96,8 @@ body {
 }
 
 h2 {
-    font-family: letramolona;
-    color: #737082;
+    font-family: letramolona-medium;
+    color: #353638;
     font-size: 30px;
     text-align: center;
     margin: 20px;
@@ -198,15 +204,19 @@ h2 {
     }
 
     h2 {
-        font-family: letramolona;
-        color: #aba6cb;
-        font-size: 20px;
+        font-family: letramolona-medium;
+        color: #353638;
+        font-size: 1.7rem;
     }
 }
 
 /*Estilos para el formulario*/
 /* Estilos generales */
 
+.button-front svg {
+    fill: #353638;
+    width: 1rem;
+}
 
 .container-proforma {
     max-width: 800px;
@@ -228,7 +238,7 @@ label {
 
 input[type="text"],
 input[type="number"] {
-    padding: 10px;
+    padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
@@ -267,7 +277,7 @@ select {
 .brand-info {
     background-color: #30F23A;
     border-radius: 10px;
-    max-width: 65%;
+    max-width: 70%;
     padding: 20px;
     margin-right: 20px;
     flex-direction: column;
@@ -275,14 +285,22 @@ select {
     align-items: center;
 }
 
+.brand-places{
+    padding: 0.2rem;
+    color: #30F23A;
+    background: #353638;
+    border-radius: 4px
+}
 /* Estilo del logo */
-.brand-info img {
+.brand-info svg {
     max-width: 7rem;
+    fill: #353638;
 }
 
 /* Estilo de la información de la empresa */
 .company-info {
     text-align: center;
+    color: #353638;
 }
 
 /* Estilo de la información de contacto */
@@ -295,33 +313,30 @@ select {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 35%;
+    width: 29%;
 }
 
 .proforma-square {
     background-color: #30F23A;
     border-radius: 10px;
-    max-width: 60vw;
-    padding: 20px;
-    padding: 1px 10px 20px 10px;
+    padding: 10px 10px 20px 10px;
     border-radius: 10px;
     text-align: center;
 }
 
-.proforma-square h2 {
-    color: #ffffff
-        /* Mismo color que el fondo del header */
-}
 
 /* Estilo del número de proforma */
-.proforma-number input {
-    outline: none;
-    text-align: center;
-    background-color: transparent;
-    color: #ffffff;
-    font-size: inherit;
-    width: 100px;
+.proforma-number input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button  {
+    appearance: none;
 }
+.proforma-number input[type=number] {
+    text-align: center;
+    color: #353638;
+    max-width: 100%;
+    appearance: textfield;
+}
+
 
 /* Estilo del campo de fecha */
 .proforma-date {
@@ -332,7 +347,7 @@ select {
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 10px;
-    color: #30F23A;
+    color: #383838;
 }
 
 .info-section {
@@ -395,12 +410,17 @@ select {
     flex-grow: 0;
 }
 
+.summary-section{
+    display: flex;
+    gap: 1rem;
+}
 /* Estilos específicos para productos */
 .product-header,
 .product-row {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 10px;
+    align-items: center;
 }
 
 .product-header label {
@@ -412,40 +432,44 @@ select {
 .product-row select,
 .product-row input {
     flex: 1;
-    min-width: 100px;
-    padding: 10px;
+    min-width: 3rem;
+    padding: 0.5rem;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.product-row input#quantity1 {
-    min-width: 50px;
-}
-
-.product-row select {
-    min-width: 120px;
-}
-
-.product-row input#unitPrice1,
-.product-row input#amount1 {
-    min-width: 120px;
-}
-
 /* Estilos para el botón "Agregar Producto" */
-.add-product-button {
+
+.buttons-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.button-front {
     background: linear-gradient(to bottom, #30F23A 0%, #06C706 100%);
     border: none;
-    color: white;
-    padding: 10px 20px;
+    color: #353638;
+    padding: 0.5rem;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-top: 10px;
+    font-size: 1rem;
     cursor: pointer;
     border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    font-family: letramolona-medium;
 }
 
-.add-product-button:hover {
+.button-front:hover {
     background: linear-gradient(to bottom, #06C706 0%, #30F23A 100%);
+}
+#enviarCliente{
+    margin-bottom: 2rem;
+}
+
+@media print {
+    .only-screen {
+        display: none;
+    }
 }

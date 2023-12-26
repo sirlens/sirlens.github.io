@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburguesería - Menú</title>
+    <style>
+        body{
+            background-image: url(ruta/Fondo.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        body,div ,img{
+            padding: 0;
+            margin: 0;
+        }
+        .slider{
+            aspect-ratio: 9/16;
+            max-width: 720px;
+            position: relative;
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            height: 100vh;
+        }
+        .slider img{
+            width: 100%;
+            left: 0;
+            position: sticky;
+            object-fit: cover;
+            border-radius: 5px;
+            scroll-snap-align: center;
+        }
+        .invisible {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider" id="imageSlider">
+        <img id="imageSlider1" src="ruta/i1.png" alt="Imagen 1">
+        <img id="imageSlider2" src="ruta/i2.png" alt="Imagen 2">
+        <img id="imageSlider3" src="ruta/i3.png" alt="Imagen 3">
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const slider = document.getElementById('imageSlider');
+
+            slider.addEventListener('scroll', function () {
+                const images = document.querySelectorAll('.slider img');
+                const center = getCenterIndex(images, slider.scrollLeft);
+
+                images.forEach((img, index) => {
+                    if (index === center) {
+                        img.classList.remove('invisible');
+                    } else {
+                        img.classList.add('invisible');
+                    }
+                });
+            });
+
+            function getCenterIndex(elements, scrollLeft) {
+                const sliderWidth = slider.clientWidth;
+                const center = scrollLeft + sliderWidth / 2;
+
+                return [...elements].findIndex((element) => {
+                    const elementLeft = element.offsetLeft;
+                    const elementWidth = element.clientWidth;
+
+                    return center >= elementLeft && center <= elementLeft + elementWidth;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

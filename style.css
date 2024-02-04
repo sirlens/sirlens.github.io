@@ -473,3 +473,33 @@ input[type=number]::-webkit-outer-spin-button  {
         display: none;
     }
 }
+/*TextArea*/
+
+#comentario {
+    /* Propiedades generales */
+    width: 100%;
+    height: 150px;
+    padding: 15px;
+    margin: 10px auto;
+    border: none;
+    border-radius: 10px;
+    font-family: letramolona-medium,Arial, Helvetica, sans-serif sans-serif;
+    font-size: 16px;
+    resize: none;
+  
+    /* Propiedades para el borde */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+  
+    /* Propiedades para el focus */
+    &:focus {
+      border-color: #999;
+      outline: none;
+    }
+  
+    /* Propiedades para el placeholder */
+    &::placeholder {
+      color: #ccc;
+      font-weight: lighter;
+    }
+  }
